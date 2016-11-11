@@ -1,7 +1,7 @@
 package uk.gov.justice.services.core.interceptor;
 
 import static java.lang.String.format;
-import static uk.gov.justice.services.core.interceptor.InterceptorContext.copyWithOutput;
+import static uk.gov.justice.services.core.interceptor.DefaultInterceptorContext.interceptorContextWithInput;
 import static uk.gov.justice.services.messaging.logging.LoggerUtils.trace;
 
 import uk.gov.justice.services.core.dispatcher.DispatcherCache;
@@ -53,7 +53,7 @@ public class InterceptorChainProcessorProducer {
     private InterceptorChainProcessor createProcessor(final Function<JsonEnvelope, JsonEnvelope> dispatch) {
 
         return interceptorContext -> {
-            final InterceptorChain interceptorChain = new InterceptorChain(interceptorCache.getInterceptors(), targetOf(dispatch));
+            final InterceptorChain interceptorChain = new DefaultInterceptorChain(interceptorCache.getInterceptors(), targetOf(dispatch));
 
             return interceptorChain
                     .processNext(interceptorContext)

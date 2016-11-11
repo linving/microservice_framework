@@ -593,7 +593,7 @@ public class CakeShopIT {
 
         assertThat(commandResponse.getStatus(), is(ACCEPTED));
 
-        await().until(() -> queryForOrder(orderId.toString()).httpCode() == OK);
+        await().atMost(15L, TimeUnit.SECONDS).until(() -> queryForOrder(orderId.toString()).httpCode() == OK);
 
         final Stream<EventLog> events = EVENT_LOG_REPOSITORY.findByStreamIdOrderBySequenceIdAsc(orderId);
         final EventLog eventLog = events.findFirst().get();

@@ -21,7 +21,7 @@ import uk.gov.justice.services.core.annotation.CustomAdapter;
 import uk.gov.justice.services.core.annotation.CustomServiceComponent;
 import uk.gov.justice.services.core.annotation.Handles;
 import uk.gov.justice.services.core.cdi.LoggerProducer;
-import uk.gov.justice.services.core.dispatcher.DispatcherCache;
+import uk.gov.justice.services.core.dispatcher.DefaultDispatcherCache;
 import uk.gov.justice.services.core.dispatcher.DispatcherFactory;
 import uk.gov.justice.services.core.dispatcher.EmptySystemUserProvider;
 import uk.gov.justice.services.core.dispatcher.RequesterProducer;
@@ -111,7 +111,7 @@ public class CustomServiceComponentHandlerIT {
             AccessControlFailureMessageGenerator.class,
             AllowAllPolicyEvaluator.class,
             AccessControlService.class,
-            DispatcherCache.class,
+            DefaultDispatcherCache.class,
             DispatcherFactory.class,
             PolicyEvaluator.class,
             AllowAllEventFilter.class,

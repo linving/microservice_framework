@@ -4,10 +4,11 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static uk.gov.justice.services.core.annotation.Component.COMMAND_API;
-import static uk.gov.justice.services.core.interceptor.InterceptorContext.copyWithOutput;
-import static uk.gov.justice.services.core.interceptor.InterceptorContext.interceptorContextWithInput;
+import static uk.gov.justice.services.core.interceptor.DefaultInterceptorContext.copyWithOutput;
+import static uk.gov.justice.services.core.interceptor.DefaultInterceptorContext.interceptorContextWithInput;
 
 import uk.gov.justice.services.core.annotation.Adapter;
+import uk.gov.justice.services.core.interceptor.DefaultInterceptorChain;
 import uk.gov.justice.services.core.interceptor.Interceptor;
 import uk.gov.justice.services.core.interceptor.InterceptorChain;
 import uk.gov.justice.services.core.interceptor.InterceptorChainProcessor;
@@ -53,7 +54,7 @@ public class LocalAuditInterceptorTest {
 
         final Target target = context -> copyWithOutput(context, outputEnvelope);
 
-        interceptorChain = new InterceptorChain(interceptors, target);
+        interceptorChain = new DefaultInterceptorChain(interceptors, target);
     }
 
     @Test
