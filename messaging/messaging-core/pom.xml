@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>uk.gov.justice.services</groupId>
-            <artifactId>framework-api</artifactId>
+            <artifactId>framework-api-messaging</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

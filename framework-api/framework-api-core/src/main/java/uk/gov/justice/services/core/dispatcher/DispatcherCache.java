@@ -36,5 +36,5 @@ public interface DispatcherCache {
      * @param location  whether the dispatcher is local or remote
      * @return the {@link Dispatcher}
      */
-    Dispatcher dispatcherFor(final Component component, final ServiceComponentLocation location);
+    Dispatcher dispatcherFor(final String component, final ServiceComponentLocation location);
 }
