@@ -15,6 +15,7 @@
     <modules>
         <module>framework-api-core</module>
         <module>framework-api-messaging</module>
+        <module>framework-api-domain</module>
     </modules>
 
 </project>
