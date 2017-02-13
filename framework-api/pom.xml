@@ -17,6 +17,10 @@
         <module>framework-api-messaging</module>
         <module>framework-api-domain</module>
         <module>framework-api-common</module>
+        <module>framework-api-event-source</module>
+        <module>framework-api-event-stream</module>
+        <module>framework-api-event-publisher</module>
+        <module>framework-api-event-repository</module>
     </modules>
 
 </project>

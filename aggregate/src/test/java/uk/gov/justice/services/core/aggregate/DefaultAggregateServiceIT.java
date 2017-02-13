@@ -104,7 +104,6 @@ public class DefaultAggregateServiceIT {
 
             DefaultAggregateService.class,
 
-            EventSource.class,
             DefaultEventSource.class,
             EnvelopeEventStream.class,
             EventStreamManager.class,

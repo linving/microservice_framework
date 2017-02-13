@@ -20,7 +20,7 @@
         </dependency>
         <dependency>
             <groupId>uk.gov.justice.services</groupId>
-            <artifactId>event-publisher-core</artifactId>
+            <artifactId>framework-api-event-publisher</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
