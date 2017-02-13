@@ -21,7 +21,7 @@ public class WebTargetFactoryBuilder {
         final WebTargetFactory webTargetFactory = new WebTargetFactory();
 
         webTargetFactory.baseUriFactory = new BaseUriFactory();
-        webTargetFactory.baseUriFactory.defaultServerPortProvider = new DefaultServerPortProvider();
+        webTargetFactory.baseUriFactory.serverPortProvider = new DefaultServerPortProvider();
         webTargetFactory.baseUriFactory.mockServerPortProvider = new MockServerPortProvider();
         webTargetFactory.baseUriFactory.mockServerPortProvider.contextMatcher = new ContextMatcher();
         webTargetFactory.baseUriFactory.mockServerPortProvider.contextMatcher.contextNameProvider = new JndiBasedServiceContextNameProvider(appName);

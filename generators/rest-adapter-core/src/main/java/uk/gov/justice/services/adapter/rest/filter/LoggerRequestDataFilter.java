@@ -39,7 +39,6 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.Provider;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.MDC;
 
@@ -130,7 +129,7 @@ public class LoggerRequestDataFilter implements ContainerRequestFilter, Containe
             try {
                 if (isNotBlank(payload)) {
                     final JsonObject jsonObjectPayload = stringToJsonObjectConverter.convert(payload);
-                    if (jsonObjectPayload. containsKey(JsonEnvelope.METADATA)) {
+                    if (jsonObjectPayload.containsKey(JsonEnvelope.METADATA)) {
                         return Optional.of(payloadMetadataFrom(jsonObjectPayload));
                     }
                 }
