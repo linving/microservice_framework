@@ -55,8 +55,8 @@ import uk.gov.justice.services.core.interceptor.InterceptorChainProcessorProduce
 import uk.gov.justice.services.core.json.DefaultJsonSchemaValidator;
 import uk.gov.justice.services.core.json.JsonSchemaLoader;
 import uk.gov.justice.services.messaging.DefaultJsonEnvelope;
+import uk.gov.justice.services.messaging.DefaultJsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.JsonEnvelope;
-import uk.gov.justice.services.messaging.JsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.JsonObjectMetadata;
 
 import java.util.Optional;
@@ -137,7 +137,7 @@ public class RemoteExampleQueryApiIT {
             InterceptorChainProcessor.class,
             InterceptorChainProcessorProducer.class,
             JndiBasedServiceContextNameProvider.class,
-            JsonObjectEnvelopeConverter.class,
+            DefaultJsonObjectEnvelopeConverter.class,
             LoggerProducer.class,
             MockServerPortProvider.class,
             ObjectToJsonValueConverter.class,
@@ -189,7 +189,6 @@ public class RemoteExampleQueryApiIT {
 
 
         final String path = format("/users/%s", USER_ID);
-
 
 
         final JsonEnvelope response = requester.request(query);

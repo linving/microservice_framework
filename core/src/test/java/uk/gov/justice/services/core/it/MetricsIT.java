@@ -47,8 +47,8 @@ import uk.gov.justice.services.core.metrics.MetricRegistryProducer;
 import uk.gov.justice.services.core.metrics.TotalActionMetricsInterceptor;
 import uk.gov.justice.services.core.sender.ComponentDestination;
 import uk.gov.justice.services.core.sender.SenderProducer;
+import uk.gov.justice.services.messaging.DefaultJsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.JsonEnvelope;
-import uk.gov.justice.services.messaging.JsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.jms.DefaultJmsEnvelopeSender;
 import uk.gov.justice.services.messaging.jms.EnvelopeConverter;
 
@@ -102,7 +102,7 @@ public class MetricsIT {
             EnvelopeConverter.class,
 
             StringToJsonObjectConverter.class,
-            JsonObjectEnvelopeConverter.class,
+            DefaultJsonObjectEnvelopeConverter.class,
             ObjectToJsonValueConverter.class,
             ObjectMapper.class,
             Enveloper.class,

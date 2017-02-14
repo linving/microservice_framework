@@ -18,8 +18,8 @@ import static uk.gov.justice.services.messaging.logging.LoggerUtils.trace;
 
 import uk.gov.justice.services.common.configuration.ServiceContextNameProvider;
 import uk.gov.justice.services.common.converter.StringToJsonObjectConverter;
+import uk.gov.justice.services.messaging.DefaultJsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.JsonEnvelope;
-import uk.gov.justice.services.messaging.JsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.Metadata;
 
 import java.io.ByteArrayInputStream;
@@ -179,7 +179,7 @@ public class LoggerRequestDataFilter implements ContainerRequestFilter, Containe
     }
 
     private Metadata payloadMetadataFrom(final JsonObject payload) {
-        return new JsonObjectEnvelopeConverter()
+        return new DefaultJsonObjectEnvelopeConverter()
                 .asEnvelope(payload)
                 .metadata();
     }

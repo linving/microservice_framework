@@ -5,7 +5,7 @@ import static uk.gov.justice.services.common.log.LoggerConstants.SERVICE_CONTEXT
 
 import uk.gov.justice.services.common.configuration.ServiceContextNameProvider;
 import uk.gov.justice.services.common.converter.StringToJsonObjectConverter;
-import uk.gov.justice.services.messaging.JsonObjectEnvelopeConverter;
+import uk.gov.justice.services.messaging.DefaultJsonObjectEnvelopeConverter;
 
 import java.util.Optional;
 
@@ -43,7 +43,7 @@ public final class JmsMessageLoggerHelper {
     }
 
     private static JsonObject metadataAsJsonObject(final TextMessage message) throws JMSException {
-        return new JsonObjectEnvelopeConverter()
+        return new DefaultJsonObjectEnvelopeConverter()
                 .asEnvelope(new StringToJsonObjectConverter().convert(message.getText()))
                 .metadata()
                 .asJsonObject();

@@ -44,8 +44,8 @@ import uk.gov.justice.services.eventsourcing.source.core.SnapshotAwareEnvelopeEv
 import uk.gov.justice.services.eventsourcing.source.core.SnapshotAwareEventSource;
 import uk.gov.justice.services.eventsourcing.source.core.snapshot.DefaultSnapshotService;
 import uk.gov.justice.services.eventsourcing.source.core.snapshot.DefaultSnapshotStrategy;
+import uk.gov.justice.services.messaging.DefaultJsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.JsonEnvelope;
-import uk.gov.justice.services.messaging.JsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.jms.EnvelopeConverter;
 import uk.gov.justice.services.messaging.jms.JmsEnvelopeSender;
 
@@ -140,7 +140,7 @@ public class SnapshotAwareAggregateServiceIT {
             EventLogConverter.class,
             EnvelopeConverter.class,
             StringToJsonObjectConverter.class,
-            JsonObjectEnvelopeConverter.class,
+            DefaultJsonObjectEnvelopeConverter.class,
             JsonObjectToObjectConverter.class,
             ObjectMapperProducer.class,
 
@@ -418,11 +418,11 @@ public class SnapshotAwareAggregateServiceIT {
         for (int i = 1; i <= count; i++) {
             JsonEnvelope envelope =
                     envelope()
-                    .with(metadataWithRandomUUID(eventName)
-                            .createdAt(clock.now())
-                            .withStreamId(STREAM_ID))
-                    .withPayloadOf("value", "name")
-                    .build();
+                            .with(metadataWithRandomUUID(eventName)
+                                    .createdAt(clock.now())
+                                    .withStreamId(STREAM_ID))
+                            .withPayloadOf("value", "name")
+                            .build();
             aggregate.addEvent(envelope);
             envelopes.add(envelope);
         }
@@ -436,11 +436,11 @@ public class SnapshotAwareAggregateServiceIT {
 
             JsonEnvelope envelope =
                     envelope()
-                    .with(metadataWithRandomUUID(eventName)
-                            .createdAt(clock.now())
-                            .withStreamId(STREAM_ID))
-                    .withPayloadOf("value", "name")
-                    .build();
+                            .with(metadataWithRandomUUID(eventName)
+                                    .createdAt(clock.now())
+                                    .withStreamId(STREAM_ID))
+                            .withPayloadOf("value", "name")
+                            .build();
 
             aggregate.apply(new EventA(String.valueOf(i)));
             envelopes.add(envelope);

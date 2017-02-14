@@ -69,8 +69,8 @@ import uk.gov.justice.services.core.sender.ComponentDestination;
 import uk.gov.justice.services.core.sender.Sender;
 import uk.gov.justice.services.core.sender.SenderProducer;
 import uk.gov.justice.services.messaging.DefaultJsonEnvelope;
+import uk.gov.justice.services.messaging.DefaultJsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.JsonEnvelope;
-import uk.gov.justice.services.messaging.JsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.JsonObjectMetadata;
 import uk.gov.justice.services.messaging.jms.DefaultJmsEnvelopeSender;
 import uk.gov.justice.services.messaging.jms.EnvelopeConverter;
@@ -155,7 +155,7 @@ public class RemoteExampleEventProcessorIT {
             InterceptorChainProcessor.class,
             InterceptorChainProcessorProducer.class,
             JndiBasedServiceContextNameProvider.class,
-            JsonObjectEnvelopeConverter.class,
+            DefaultJsonObjectEnvelopeConverter.class,
             LoggerProducer.class,
             MockServerPortProvider.class,
             ObjectMapperProducer.class,

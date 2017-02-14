@@ -51,8 +51,8 @@ import uk.gov.justice.services.core.sender.SenderProducer;
 import uk.gov.justice.services.event.buffer.EventBufferInterceptor;
 import uk.gov.justice.services.event.buffer.api.EventBufferService;
 import uk.gov.justice.services.event.filter.EventFilterInterceptor;
+import uk.gov.justice.services.messaging.DefaultJsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.JsonEnvelope;
-import uk.gov.justice.services.messaging.JsonObjectEnvelopeConverter;
 import uk.gov.justice.services.messaging.jms.DefaultJmsEnvelopeSender;
 import uk.gov.justice.services.messaging.jms.EnvelopeConverter;
 import uk.gov.justice.services.test.utils.common.envelope.TestEnvelopeRecorder;
@@ -123,7 +123,7 @@ public class JmsAdapterToHandlerIT extends AbstractJmsAdapterGenerationIT {
             TestServiceContextNameProvider.class,
             JsonSchemaLoader.class,
             StringToJsonObjectConverter.class,
-            JsonObjectEnvelopeConverter.class,
+            DefaultJsonObjectEnvelopeConverter.class,
             ObjectToJsonValueConverter.class,
             ObjectMapperProducer.class,
             Enveloper.class,
