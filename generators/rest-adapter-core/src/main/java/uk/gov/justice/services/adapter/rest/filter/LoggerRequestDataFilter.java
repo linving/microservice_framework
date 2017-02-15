@@ -13,7 +13,7 @@ import static uk.gov.justice.services.common.http.HeaderConstants.SESSION_ID;
 import static uk.gov.justice.services.common.http.HeaderConstants.USER_ID;
 import static uk.gov.justice.services.common.log.LoggerConstants.METADATA;
 import static uk.gov.justice.services.common.log.LoggerConstants.REQUEST_DATA;
-import static uk.gov.justice.services.messaging.logging.JmsMessageLoggerHelper.addServiceContextNameIfPresent;
+import static uk.gov.justice.services.common.log.LoggerConstants.SERVICE_CONTEXT;
 import static uk.gov.justice.services.messaging.logging.LoggerUtils.trace;
 
 import uk.gov.justice.services.common.configuration.ServiceContextNameProvider;
@@ -66,7 +66,8 @@ public class LoggerRequestDataFilter implements ContainerRequestFilter, Containe
         final JsonObjectBuilder builder = createObjectBuilder();
         final MultivaluedMap<String, String> headers = requestContext.getHeaders();
 
-        addServiceContextNameIfPresent(serviceContextNameProvider, builder);
+        Optional.ofNullable(serviceContextNameProvider.getServiceContextName())
+                .ifPresent(value -> builder.add(SERVICE_CONTEXT, value));
         addContentTypeAndAcceptIfPresent(builder, headers);
         mergeHeadersWithPayloadMetadataIfPresent(requestContext, headers)
                 .ifPresent(metadataBuilder -> builder.add(METADATA, metadataBuilder));
