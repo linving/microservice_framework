@@ -21,6 +21,7 @@
         <module>framework-api-event-stream</module>
         <module>framework-api-event-publisher</module>
         <module>framework-api-event-repository</module>
+        <module>framework-api-aggregate</module>
     </modules>
 
 </project>

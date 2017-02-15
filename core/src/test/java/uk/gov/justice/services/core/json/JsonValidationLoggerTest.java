@@ -5,6 +5,7 @@ import static com.jayway.jsonassert.impl.matcher.IsCollectionWithSize.hasSize;
 import static com.jayway.jsonpath.matchers.JsonPathMatchers.hasJsonPath;
 import static java.lang.String.format;
 import static java.nio.charset.Charset.defaultCharset;
+import static net.trajano.commons.testing.UtilityClassTestUtil.assertUtilityClassWellDefined;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static uk.gov.justice.services.core.json.JsonValidationLogger.toValidationTrace;
@@ -36,6 +37,11 @@ public class JsonValidationLoggerTest {
             validationException = ex;
         }
         result = toValidationTrace(validationException);
+    }
+
+    @Test
+    public void shouldBeWellDefinedUtilityClass() {
+        assertUtilityClassWellDefined(JsonValidationLogger.class);
     }
 
     @Test
