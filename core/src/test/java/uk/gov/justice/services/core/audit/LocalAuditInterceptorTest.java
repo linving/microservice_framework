@@ -4,7 +4,6 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static uk.gov.justice.services.core.annotation.Component.COMMAND_API;
-import static uk.gov.justice.services.core.interceptor.DefaultInterceptorContext.copyWithOutput;
 import static uk.gov.justice.services.core.interceptor.DefaultInterceptorContext.interceptorContextWithInput;
 
 import uk.gov.justice.services.core.annotation.Adapter;
@@ -52,7 +51,7 @@ public class LocalAuditInterceptorTest {
         final Deque<Interceptor> interceptors = new LinkedList<>();
         interceptors.add(localAuditInterceptor);
 
-        final Target target = context -> copyWithOutput(context, outputEnvelope);
+        final Target target = context -> context.copyWithOutput(outputEnvelope);
 
         interceptorChain = new DefaultInterceptorChain(interceptors, target);
     }

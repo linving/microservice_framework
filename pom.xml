@@ -43,7 +43,6 @@
         <module>file</module>
         <module>raml-lint-check</module>
         <module>framework-api</module>
-        <module>framework-utils</module>
     </modules>
 
     <properties>

@@ -12,8 +12,18 @@
     <artifactId>event-source</artifactId>
     <dependencies>
         <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>uk.gov.justice.services</groupId>
             <artifactId>framework-api-event-source</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.gov.justice.services</groupId>
+            <artifactId>framework-api-event-publisher</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -23,14 +33,20 @@
         </dependency>
         <dependency>
             <groupId>uk.gov.justice.services</groupId>
-            <artifactId>event-publisher-core</artifactId>
+            <artifactId>framework-api-common</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <scope>provided</scope>
+            <groupId>uk.gov.justice.services</groupId>
+            <artifactId>messaging-core</artifactId>
+            <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <!-- Test dependency -->
         <dependency>
             <groupId>uk.gov.justice.services</groupId>
             <artifactId>test-utils-core</artifactId>

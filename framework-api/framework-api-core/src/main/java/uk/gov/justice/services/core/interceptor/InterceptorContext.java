@@ -38,8 +38,6 @@ public interface InterceptorContext {
 
     void setOutputParameter(final String name, final Object parameter);
 
-    InjectionPoint injectionPoint();
-
     ContextPayload inputContext();
 
     ContextPayload outputContext();

@@ -8,7 +8,7 @@ import uk.gov.justice.services.messaging.JsonEnvelope;
 
 import java.util.Optional;
 
-public class InterceptorContext {
+public class DefaultInterceptorContext implements InterceptorContext {
 
     private final ContextPayload input;
     private final ContextPayload output;
@@ -20,7 +20,7 @@ public class InterceptorContext {
      * @param input  the input ContextPayload
      * @param output the output ContextPayload
      */
-    private InterceptorContext(final ContextPayload input, final ContextPayload output) {
+    private DefaultInterceptorContext(final ContextPayload input, final ContextPayload output) {
         this.input = input;
         this.output = output;
     }
@@ -33,35 +33,19 @@ public class InterceptorContext {
      * @return the new InterceptorContext
      */
     public static InterceptorContext interceptorContextWithInput(final JsonEnvelope input) {
-        return new InterceptorContext(contextPayloadWith(input), contextPayloadWithNoEnvelope());
+        return new DefaultInterceptorContext(contextPayloadWith(input), contextPayloadWithNoEnvelope());
     }
 
-    /**
-     * Create a copy of the provided interceptor context that will contain the provided input
-     * envelope.
-     *
-     * @param interceptorContext the interceptor context to copy
-     * @param inputEnvelope      the inputEnvelope JsonEnvelope to set as input
-     * @return the new InterceptorContext
-     */
-    public static InterceptorContext copyWithInput(final InterceptorContext interceptorContext, final JsonEnvelope inputEnvelope) {
-        return new InterceptorContext(
-                copyWithEnvelope(interceptorContext.inputContext(), inputEnvelope),
-                interceptorContext.outputContext());
+    public InterceptorContext copyWithInput(final JsonEnvelope inputEnvelope) {
+        return new DefaultInterceptorContext(
+                copyWithEnvelope(this.inputContext(), inputEnvelope),
+                this.outputContext());
     }
 
-    /**
-     * Create a copy of the provided interceptor context that will contain the provided output
-     * envelope.
-     *
-     * @param interceptorContext the interceptor context to copy
-     * @param outputEnvelope     the outputEnvelope JsonEnvelope to set as the output
-     * @return the new InterceptorContext
-     */
-    public static InterceptorContext copyWithOutput(final InterceptorContext interceptorContext, final JsonEnvelope outputEnvelope) {
-        return new InterceptorContext(
-                interceptorContext.inputContext(),
-                copyWithEnvelope(interceptorContext.outputContext(), outputEnvelope));
+    public InterceptorContext copyWithOutput(final JsonEnvelope outputEnvelope) {
+        return new DefaultInterceptorContext(
+                this.inputContext(),
+                copyWithEnvelope(this.outputContext(), outputEnvelope));
     }
 
     public JsonEnvelope inputEnvelope() {
@@ -88,11 +72,11 @@ public class InterceptorContext {
         output.setParameter(name, parameter);
     }
 
-    private ContextPayload inputContext() {
+    public ContextPayload inputContext() {
         return input;
     }
 
-    private ContextPayload outputContext() {
+    public ContextPayload outputContext() {
         return output;
     }
 }
