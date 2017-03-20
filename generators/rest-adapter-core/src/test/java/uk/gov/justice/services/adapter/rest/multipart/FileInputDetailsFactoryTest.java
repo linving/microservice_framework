@@ -1,4 +1,4 @@
-package uk.gov.justice.services.adapter.rest.mutipart;
+package uk.gov.justice.services.adapter.rest.multipart;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
@@ -18,8 +18,6 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.ws.rs.core.MediaType;
 
 import com.google.common.collect.ImmutableMap;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;

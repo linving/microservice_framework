@@ -19,8 +19,9 @@ import static uk.gov.justice.services.test.utils.core.matchers.JsonEnvelopeMetad
 import static uk.gov.justice.services.test.utils.core.matchers.JsonEnvelopePayloadMatcher.payloadIsJson;
 
 import uk.gov.justice.services.adapter.rest.envelope.RestEnvelopeBuilderFactory;
-import uk.gov.justice.services.adapter.rest.mutipart.FileBasedInterceptorContextFactory;
-import uk.gov.justice.services.adapter.rest.mutipart.FileInputDetails;
+import uk.gov.justice.services.adapter.rest.multipart.FileBasedInterceptorContextFactory;
+import uk.gov.justice.services.adapter.rest.multipart.FileInputDetails;
+import uk.gov.justice.services.adapter.rest.parameter.DefaultParameter;
 import uk.gov.justice.services.adapter.rest.parameter.Parameter;
 import uk.gov.justice.services.adapter.rest.processor.response.ResponseStrategy;
 import uk.gov.justice.services.common.http.HeaderConstants;
@@ -33,12 +34,10 @@ import java.util.Optional;
 import java.util.function.Function;
 
 import javax.json.JsonObject;
-import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 
 import org.jboss.resteasy.specimpl.MultivaluedMapImpl;
 import org.jboss.resteasy.specimpl.ResteasyHttpHeaders;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -92,7 +91,7 @@ public class DefaultRestProcessorTest {
         final String userId = "userId1234";
         final String action = "anAction123";
         final String payloadIdValue = "payloadIdValue1";
-        final List<Parameter> pathParams = singletonList(Parameter.valueOf("paramName", "someParamValue", ParameterType.STRING));
+        final List<Parameter> pathParams = singletonList(DefaultParameter.valueOf("paramName", "someParamValue", ParameterType.STRING));
 
         final JsonObject payload = createObjectBuilder().add("payloadId", payloadIdValue).build();
 
@@ -119,7 +118,7 @@ public class DefaultRestProcessorTest {
     public void shouldPassEnvelopeWithEmptyPayloadToInterceptorChain() throws Exception {
         final String action = "actionABC";
         final String userId = "usrABC";
-        final List<Parameter> pathParams = singletonList(Parameter.valueOf("name", "value123", ParameterType.STRING));
+        final List<Parameter> pathParams = singletonList(DefaultParameter.valueOf("name", "value123", ParameterType.STRING));
 
         when(responseStrategyCache.responseStrategyOf(anyString())).thenReturn(responseStrategy);
 

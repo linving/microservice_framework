@@ -7,10 +7,9 @@ import static uk.gov.justice.services.messaging.logging.HttpMessageLoggerHelper.
 import static uk.gov.justice.services.messaging.logging.LoggerUtils.trace;
 
 import uk.gov.justice.services.adapter.rest.envelope.RestEnvelopeBuilderFactory;
-import uk.gov.justice.services.adapter.rest.mutipart.FileBasedInterceptorContextFactory;
-import uk.gov.justice.services.adapter.rest.mutipart.FileInputDetails;
+import uk.gov.justice.services.adapter.rest.multipart.FileBasedInterceptorContextFactory;
+import uk.gov.justice.services.adapter.rest.multipart.FileInputDetails;
 import uk.gov.justice.services.adapter.rest.parameter.Parameter;
-import uk.gov.justice.services.adapter.rest.processor.response.ResponseStrategy;
 import uk.gov.justice.services.core.interceptor.InterceptorContext;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 

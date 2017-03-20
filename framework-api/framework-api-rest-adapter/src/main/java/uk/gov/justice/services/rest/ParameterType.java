@@ -10,10 +10,9 @@ public enum ParameterType {
      */
     STRING, NUMERIC, BOOLEAN;
 
-
     /**
      * Converts RAML parameter type to {@link ParameterType}
-     * 
+     *
      * @param ramlParamType RAML parameter type
      * @return a matching {@link ParameterType}
      */

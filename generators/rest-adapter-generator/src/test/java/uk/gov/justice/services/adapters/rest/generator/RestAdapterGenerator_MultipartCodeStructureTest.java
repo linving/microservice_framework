@@ -18,7 +18,7 @@ import static uk.gov.justice.services.generators.test.utils.builder.ResourceBuil
 import static uk.gov.justice.services.generators.test.utils.config.GeneratorConfigUtil.configurationWithBasePackage;
 import static uk.gov.justice.services.generators.test.utils.reflection.ReflectionUtil.methodsOf;
 
-import uk.gov.justice.services.adapter.rest.mutipart.FileInputDetailsFactory;
+import uk.gov.justice.services.adapter.rest.multipart.FileInputDetailsFactory;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

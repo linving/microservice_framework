@@ -1,4 +1,4 @@
-package uk.gov.justice.services.adapter.rest.mutipart;
+package uk.gov.justice.services.adapter.rest.multipart;
 
 import static java.lang.String.format;
 import static java.util.stream.Collectors.toList;
@@ -34,7 +34,7 @@ public class FileInputDetailsFactory {
 
     private FileInputDetails fileInputDetailsFrom(final Map<String, List<InputPart>> formDataMap, final String fieldName) {
 
-        if(! formDataMap.containsKey(fieldName)) {
+        if (!formDataMap.containsKey(fieldName)) {
             throw new BadRequestException(format("Failed to find input part named '%s' as specified in the raml", fieldName));
         }
 
@@ -48,7 +48,7 @@ public class FileInputDetailsFactory {
 
         final String fileName = inputPartFileNameExtractor.extractFileName(inputPart);
 
-        return new FileInputDetails(
+        return new DefaultFileInputDetails(
                 fileName,
                 fieldName,
                 inputStreamFrom(inputPart, fileName));

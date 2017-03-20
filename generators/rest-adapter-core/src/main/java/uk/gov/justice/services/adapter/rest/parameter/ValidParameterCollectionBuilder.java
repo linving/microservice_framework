@@ -38,7 +38,7 @@ public class ValidParameterCollectionBuilder {
      *
      * @param name  the parameter name
      * @param value the parameter value
-     * @param type the parameter type
+     * @param type  the parameter type
      * @return the current instance of {@link ValidParameterCollectionBuilder}
      * @throws BadRequestException if the parameter value is null or has invalid value
      */
@@ -55,7 +55,7 @@ public class ValidParameterCollectionBuilder {
      *
      * @param name  the parameter name
      * @param value the parameter value
-     * @param type the parameter type
+     * @param type  the parameter type
      * @return the current instance of {@link ValidParameterCollectionBuilder}
      * @throws BadRequestException if the parameter has invalid value
      */
@@ -68,7 +68,7 @@ public class ValidParameterCollectionBuilder {
 
     private void addParam(final String name, final String value, final ParameterType type) {
         try {
-            parameters.add(Parameter.valueOf(name, value, type));
+            parameters.add(DefaultParameter.valueOf(name, value, type));
         } catch (IllegalArgumentException e) {
             throw new BadRequestException(INVALID_PARAM_VALUE, e);
         }

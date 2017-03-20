@@ -30,7 +30,7 @@ import static uk.gov.justice.services.rest.ParameterType.NUMERIC;
 import static uk.gov.justice.services.rest.ParameterType.STRING;
 
 import uk.gov.justice.services.adapter.rest.exception.BadRequestException;
-import uk.gov.justice.services.adapter.rest.parameter.Parameter;
+import uk.gov.justice.services.adapter.rest.parameter.DefaultParameter;
 import uk.gov.justice.services.common.http.HeaderConstants;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.justice.services.messaging.Metadata;
@@ -121,7 +121,7 @@ public class RestEnvelopeBuilderTest {
     @Test
     public void shouldAddStringParam() {
 
-        final RestEnvelopeBuilder builder = builderWithDefaultAction().withParams(ImmutableList.of(Parameter.valueOf("test2", "value2", STRING)));
+        final RestEnvelopeBuilder builder = builderWithDefaultAction().withParams(ImmutableList.of(DefaultParameter.valueOf("test2", "value2", STRING)));
         final JsonEnvelope envelope = builder.build();
         assertThat(envelope.payloadAsJsonObject().getString("test2"), is("value2"));
     }
@@ -129,7 +129,7 @@ public class RestEnvelopeBuilderTest {
     @Test
     public void shouldAddNumericParams() {
 
-        final RestEnvelopeBuilder builder = builderWithDefaultAction().withParams(ImmutableList.of(Parameter.valueOf("param1", "3", NUMERIC)));
+        final RestEnvelopeBuilder builder = builderWithDefaultAction().withParams(ImmutableList.of(DefaultParameter.valueOf("param1", "3", NUMERIC)));
         final JsonEnvelope envelope = builder.build();
         assertThat(envelope.payloadAsJsonObject().getInt("param1"), is(3));
     }
@@ -137,7 +137,7 @@ public class RestEnvelopeBuilderTest {
     @Test
     public void shouldAddBooleanParams() {
 
-        final RestEnvelopeBuilder builder = builderWithDefaultAction().withParams(ImmutableList.of(Parameter.valueOf("param1", "true", BOOLEAN)));
+        final RestEnvelopeBuilder builder = builderWithDefaultAction().withParams(ImmutableList.of(DefaultParameter.valueOf("param1", "true", BOOLEAN)));
         final JsonEnvelope envelope = builder.build();
         assertThat(envelope.payloadAsJsonObject().getBoolean("param1"), is(true));
     }

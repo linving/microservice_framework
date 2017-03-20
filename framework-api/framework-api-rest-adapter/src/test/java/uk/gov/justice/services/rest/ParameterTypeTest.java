@@ -13,11 +13,9 @@ public class ParameterTypeTest {
         assertEquals(ParameterType.valueOfQueryType("INTEGER"), ParameterType.NUMERIC);
         assertEquals(ParameterType.valueOfQueryType("BOOLEAN"), ParameterType.BOOLEAN);
     }
-    
-  
+
     @Test
     public void shouldReturnStringIfTypeIsUnmapped() {
         assertEquals(ParameterType.valueOfQueryType("DATE"), ParameterType.STRING);
     }
-
 }
