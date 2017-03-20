@@ -23,6 +23,7 @@
         <module>framework-api-event-repository</module>
         <module>framework-api-aggregate</module>
         <module>framework-api-all</module>
+        <module>framework-api-rest-adapter</module>
     </modules>
 
 </project>

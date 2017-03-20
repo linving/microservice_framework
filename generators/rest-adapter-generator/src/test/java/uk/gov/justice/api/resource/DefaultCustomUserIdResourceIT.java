@@ -8,6 +8,7 @@ import static org.junit.Assert.assertThat;
 import uk.gov.justice.api.CustomApiRestExampleApplication;
 import uk.gov.justice.api.mapper.DefaultCustomUserIdResourceActionMapper;
 import uk.gov.justice.services.adapter.rest.application.CommonProviders;
+import uk.gov.justice.services.adapter.rest.application.DefaultCommonProviders;
 import uk.gov.justice.services.adapter.rest.envelope.RestEnvelopeBuilderFactory;
 import uk.gov.justice.services.adapter.rest.filter.LoggerRequestDataFilter;
 import uk.gov.justice.services.adapter.rest.interceptor.JsonSchemaValidationInterceptor;
@@ -108,7 +109,7 @@ public class DefaultCustomUserIdResourceIT {
             RecordingInterceptorChainProcessor.class,
             ObjectMapperProducer.class,
             DefaultJsonObjectEnvelopeConverter.class,
-            CommonProviders.class,
+            DefaultCommonProviders.class,
             DummyCommonProviders.class,
             BadRequestExceptionMapper.class,
             JsonSchemaValidationInterceptor.class,

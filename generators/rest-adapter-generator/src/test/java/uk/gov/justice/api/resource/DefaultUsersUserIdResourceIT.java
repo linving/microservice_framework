@@ -15,6 +15,7 @@ import uk.gov.justice.api.QueryApiRestExampleApplication;
 import uk.gov.justice.api.mapper.DefaultUsersResourceActionMapper;
 import uk.gov.justice.api.mapper.DefaultUsersUserIdResourceActionMapper;
 import uk.gov.justice.services.adapter.rest.application.CommonProviders;
+import uk.gov.justice.services.adapter.rest.application.DefaultCommonProviders;
 import uk.gov.justice.services.adapter.rest.envelope.RestEnvelopeBuilderFactory;
 import uk.gov.justice.services.adapter.rest.filter.LoggerRequestDataFilter;
 import uk.gov.justice.services.adapter.rest.interceptor.JsonSchemaValidationInterceptor;
@@ -40,7 +41,6 @@ import uk.gov.justice.services.messaging.JsonEnvelope;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
-import java.net.ResponseCache;
 import java.util.Properties;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -127,7 +127,7 @@ public class DefaultUsersUserIdResourceIT {
             RecordingInterceptorChainProcessor.class,
             ObjectMapperProducer.class,
             DefaultJsonObjectEnvelopeConverter.class,
-            CommonProviders.class,
+            DefaultCommonProviders.class,
             DummyCommonProviders.class,
             BadRequestExceptionMapper.class,
             JsonSchemaValidationInterceptor.class,
