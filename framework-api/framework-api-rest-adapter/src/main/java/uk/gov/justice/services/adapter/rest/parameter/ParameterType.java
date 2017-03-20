@@ -1,4 +1,4 @@
-package uk.gov.justice.services.rest;
+package uk.gov.justice.services.adapter.rest.parameter;
 
 /**
  * Enum containing types of HTTP query parameter types

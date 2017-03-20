@@ -1,6 +1,6 @@
 package uk.gov.justice.services.clients.core;
 
-import uk.gov.justice.services.rest.ParameterType;
+import uk.gov.justice.services.adapter.rest.parameter.ParameterType;
 
 /**
  * Class representing a query parameter definition for a REST endpoint.
@@ -13,9 +13,10 @@ public class QueryParam {
 
     /**
      * Constructor.
-     *  @param name     the name of the parameter
+     *
+     * @param name     the name of the parameter
      * @param required true if the parameter is required
-     * @param type
+     * @param type     the parameter type
      */
     public QueryParam(final String name, final boolean required, final ParameterType type) {
         this.name = name;

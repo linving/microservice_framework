@@ -1,4 +1,4 @@
-package uk.gov.justice.services.rest;
+package uk.gov.justice.services.adapter.rest.parameter;
 
 import static org.junit.Assert.assertEquals;
 

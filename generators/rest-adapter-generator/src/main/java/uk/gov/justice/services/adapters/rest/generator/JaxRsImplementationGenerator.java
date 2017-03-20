@@ -34,6 +34,7 @@ import static uk.gov.justice.services.generators.commons.helper.Names.resourceIn
 import uk.gov.justice.raml.core.GeneratorConfig;
 import uk.gov.justice.services.adapter.rest.ActionMapper;
 import uk.gov.justice.services.adapter.rest.multipart.FileInputDetailsFactory;
+import uk.gov.justice.services.adapter.rest.parameter.ParameterType;
 import uk.gov.justice.services.adapter.rest.parameter.ValidParameterCollectionBuilder;
 import uk.gov.justice.services.adapter.rest.processor.RestProcessor;
 import uk.gov.justice.services.core.annotation.Adapter;
@@ -42,7 +43,6 @@ import uk.gov.justice.services.core.annotation.CustomAdapter;
 import uk.gov.justice.services.core.interceptor.InterceptorChainProcessor;
 import uk.gov.justice.services.messaging.logging.HttpMessageLoggerHelper;
 import uk.gov.justice.services.messaging.logging.LoggerUtils;
-import uk.gov.justice.services.rest.ParameterType;
 
 import java.util.ArrayList;
 import java.util.Collection;

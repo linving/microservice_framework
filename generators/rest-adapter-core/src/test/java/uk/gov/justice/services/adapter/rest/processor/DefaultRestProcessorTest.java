@@ -23,11 +23,11 @@ import uk.gov.justice.services.adapter.rest.multipart.FileBasedInterceptorContex
 import uk.gov.justice.services.adapter.rest.multipart.FileInputDetails;
 import uk.gov.justice.services.adapter.rest.parameter.DefaultParameter;
 import uk.gov.justice.services.adapter.rest.parameter.Parameter;
+import uk.gov.justice.services.adapter.rest.parameter.ParameterType;
 import uk.gov.justice.services.adapter.rest.processor.response.ResponseStrategy;
 import uk.gov.justice.services.common.http.HeaderConstants;
 import uk.gov.justice.services.core.interceptor.InterceptorContext;
 import uk.gov.justice.services.messaging.JsonEnvelope;
-import uk.gov.justice.services.rest.ParameterType;
 
 import java.util.List;
 import java.util.Optional;

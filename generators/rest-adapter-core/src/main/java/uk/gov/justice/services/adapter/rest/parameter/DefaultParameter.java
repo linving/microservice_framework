@@ -2,8 +2,6 @@ package uk.gov.justice.services.adapter.rest.parameter;
 
 import static org.apache.commons.lang3.BooleanUtils.toBooleanObject;
 
-import uk.gov.justice.services.rest.ParameterType;
-
 import java.math.BigDecimal;
 
 /**
