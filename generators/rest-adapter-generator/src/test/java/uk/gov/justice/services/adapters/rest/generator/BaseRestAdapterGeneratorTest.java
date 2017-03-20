@@ -3,7 +3,7 @@ package uk.gov.justice.services.adapters.rest.generator;
 
 import static uk.gov.justice.services.generators.test.utils.reflection.ReflectionUtil.setField;
 
-import uk.gov.justice.services.adapter.rest.BasicActionMapper;
+import uk.gov.justice.services.adapter.rest.ActionMapper;
 import uk.gov.justice.services.adapter.rest.multipart.FileInputDetailsFactory;
 import uk.gov.justice.services.adapter.rest.processor.RestProcessor;
 import uk.gov.justice.services.adapter.rest.processor.response.AcceptedStatusNoEntityResponseStrategy;
@@ -23,15 +23,13 @@ public abstract class BaseRestAdapterGeneratorTest extends BaseGeneratorTest {
     private static final String INTERCEPTOR_CHAIN_PROCESSOR = "interceptorChainProcessor";
     private static final String REST_PROCESSOR = "restProcessor";
     private static final String ACTION_MAPPER = "actionMapper";
-    private static final String RESPONSE_STRATEGY_FIELD = "responseStrategy";
-    private static final String ACCEPTED_STATUS_NO_ENTITY_RESPONSE_STRATEGY_FIELD = "acceptedStatusNoEntityResponseStrategy";
     private static final String FILE_INPUT_DETAILS_FACTORY = "fileInputDetailsFactory";
 
     @Mock
     protected InterceptorChainProcessor interceptorChainProcessor;
 
     @Mock
-    protected BasicActionMapper actionMapper;
+    protected ActionMapper actionMapper;
 
     @Mock
     protected RestProcessor restProcessor;

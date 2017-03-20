@@ -32,7 +32,7 @@ import static uk.gov.justice.services.generators.commons.helper.Names.resourceIm
 import static uk.gov.justice.services.generators.commons.helper.Names.resourceInterfaceNameOf;
 
 import uk.gov.justice.raml.core.GeneratorConfig;
-import uk.gov.justice.services.adapter.rest.BasicActionMapper;
+import uk.gov.justice.services.adapter.rest.ActionMapper;
 import uk.gov.justice.services.adapter.rest.multipart.FileInputDetailsFactory;
 import uk.gov.justice.services.adapter.rest.parameter.ValidParameterCollectionBuilder;
 import uk.gov.justice.services.adapter.rest.processor.RestProcessor;
@@ -161,7 +161,7 @@ class JaxRsImplementationGenerator {
                 .addField(FieldSpec.builder(RestProcessor.class, "restProcessor")
                         .addAnnotation(Inject.class)
                         .build())
-                .addField(FieldSpec.builder(BasicActionMapper.class, ACTION_MAPPER_FIELD)
+                .addField(FieldSpec.builder(ActionMapper.class, ACTION_MAPPER_FIELD)
                         .addAnnotation(Inject.class)
                         .addAnnotation(AnnotationSpec.builder(Named.class)
                                 .addMember(DEFAULT_ANNOTATION_PARAMETER, "$S", className + "ActionMapper").build())

@@ -13,7 +13,7 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
 
-public class BasicActionMapper {
+public class BasicActionMapper implements ActionMapper {
 
     private static final String MEDIA_TYPE_SEPARATOR = "/";
 

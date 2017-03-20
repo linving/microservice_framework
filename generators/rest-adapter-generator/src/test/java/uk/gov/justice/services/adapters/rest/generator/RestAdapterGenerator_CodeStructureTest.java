@@ -23,8 +23,6 @@ import static org.raml.model.ActionType.GET;
 import static org.raml.model.ActionType.PATCH;
 import static org.raml.model.ActionType.POST;
 import static org.raml.model.ActionType.PUT;
-import static uk.gov.justice.services.adapter.rest.processor.response.ResponseStrategies.FILE_STREAM_RETURNING_RESPONSE_STRATEGY;
-import static uk.gov.justice.services.adapter.rest.processor.response.ResponseStrategies.OK_STATUS_ENVELOPE_PAYLOAD_ENTITY_RESPONSE_STRATEGY;
 import static uk.gov.justice.services.generators.test.utils.builder.HttpActionBuilder.defaultGetAction;
 import static uk.gov.justice.services.generators.test.utils.builder.HttpActionBuilder.httpAction;
 import static uk.gov.justice.services.generators.test.utils.builder.MappingBuilder.mapping;
@@ -43,9 +41,8 @@ import static uk.gov.justice.services.generators.test.utils.reflection.Reflectio
 import static uk.gov.justice.services.generators.test.utils.reflection.ReflectionUtil.methodsOf;
 
 import uk.gov.justice.raml.core.GeneratorConfig;
-import uk.gov.justice.services.adapter.rest.BasicActionMapper;
+import uk.gov.justice.services.adapter.rest.ActionMapper;
 import uk.gov.justice.services.adapter.rest.processor.RestProcessor;
-import uk.gov.justice.services.adapter.rest.processor.response.ResponseStrategy;
 import uk.gov.justice.services.core.annotation.Adapter;
 import uk.gov.justice.services.core.annotation.Component;
 import uk.gov.justice.services.core.annotation.CustomAdapter;
@@ -906,7 +903,7 @@ public class RestAdapterGenerator_CodeStructureTest extends BaseRestAdapterGener
 
         final Field mapping = resourceClass.getDeclaredField("actionMapper");
         assertThat(mapping, not(nullValue()));
-        assertThat(mapping.getType(), equalTo(BasicActionMapper.class));
+        assertThat(mapping.getType(), equalTo(ActionMapper.class));
         assertThat(mapping.getAnnotation(Inject.class), not(nullValue()));
         assertThat(mapping.getAnnotation(Named.class), not(nullValue()));
         assertThat(mapping.getAnnotation(Named.class).value(), is("DefaultUserResourceActionMapper"));
