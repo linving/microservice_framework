@@ -29,13 +29,13 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class FileInputDetailsFactoryTest {
+public class DefaultFileInputDetailsFactoryTest {
 
     @Mock
     private InputPartFileNameExtractor inputPartFileNameExtractor;
 
     @InjectMocks
-    private FileInputDetailsFactory fileInputDetailsFactory;
+    private DefaultFileInputDetailsFactory fileInputDetailsFactory;
 
     @Test
     public void shouldCreateFileInputDetailsFromFilePart() throws Exception {

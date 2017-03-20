@@ -18,11 +18,12 @@ import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 
 @ApplicationScoped
-public class FileInputDetailsFactory {
+public class DefaultFileInputDetailsFactory implements FileInputDetailsFactory {
 
     @Inject
     InputPartFileNameExtractor inputPartFileNameExtractor;
 
+    @Override
     public List<FileInputDetails> createFileInputDetailsFrom(final MultipartFormDataInput multipartFormDataInput, final List<String> fieldNames) {
         final Map<String, List<InputPart>> formDataMap = multipartFormDataInput.getFormDataMap();
 

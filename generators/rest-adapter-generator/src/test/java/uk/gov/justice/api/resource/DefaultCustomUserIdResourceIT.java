@@ -13,8 +13,8 @@ import uk.gov.justice.services.adapter.rest.envelope.RestEnvelopeBuilderFactory;
 import uk.gov.justice.services.adapter.rest.filter.LoggerRequestDataFilter;
 import uk.gov.justice.services.adapter.rest.interceptor.JsonSchemaValidationInterceptor;
 import uk.gov.justice.services.adapter.rest.mapper.BadRequestExceptionMapper;
+import uk.gov.justice.services.adapter.rest.multipart.DefaultFileInputDetailsFactory;
 import uk.gov.justice.services.adapter.rest.multipart.FileBasedInterceptorContextFactory;
-import uk.gov.justice.services.adapter.rest.multipart.FileInputDetailsFactory;
 import uk.gov.justice.services.adapter.rest.multipart.InputPartFileNameExtractor;
 import uk.gov.justice.services.adapter.rest.processor.DefaultRestProcessor;
 import uk.gov.justice.services.adapter.rest.processor.ResponseStrategyCache;
@@ -122,7 +122,7 @@ public class DefaultCustomUserIdResourceIT {
             StringToJsonObjectConverter.class,
             FileBasedInterceptorContextFactory.class,
             InputPartFileNameExtractor.class,
-            FileInputDetailsFactory.class,
+            DefaultFileInputDetailsFactory.class,
             ResponseStrategyCache.class
     })
     public WebApp war() {
