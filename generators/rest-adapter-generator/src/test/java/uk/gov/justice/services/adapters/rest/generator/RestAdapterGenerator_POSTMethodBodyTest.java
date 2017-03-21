@@ -32,6 +32,8 @@ import static uk.gov.justice.services.generators.test.utils.reflection.Reflectio
 import static uk.gov.justice.services.generators.test.utils.reflection.ReflectionUtil.setField;
 import static uk.gov.justice.services.messaging.DefaultJsonEnvelope.envelope;
 
+import uk.gov.justice.services.adapter.rest.mapper.ActionMapperHelper;
+import uk.gov.justice.services.adapter.rest.mapper.BasicActionMapperHelper;
 import uk.gov.justice.services.adapter.rest.parameter.Parameter;
 import uk.gov.justice.services.core.interceptor.InterceptorContext;
 import uk.gov.justice.services.messaging.JsonEnvelope;
@@ -316,7 +318,7 @@ public class RestAdapterGenerator_POSTMethodBodyTest extends BaseRestAdapterGene
         final Object resourceObject = getInstanceOf(resourceClass);
 
         final Class<?> actionMapperClass = compiler.compiledClassOf(BASE_PACKAGE, "mapper", "DefaultUserResourceActionMapper");
-        final Object actionMapperObject = actionMapperClass.newInstance();
+        final Object actionMapperObject = actionMapperClass.getConstructor(ActionMapperHelper.class).newInstance(new BasicActionMapperHelper());
         setField(resourceObject, "actionMapper", actionMapperObject);
 
         setField(resourceObject, "headers", headersWith("Content-Type", "application/vnd.somemediatype1+json"));

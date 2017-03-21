@@ -3,7 +3,7 @@ package uk.gov.justice.services.adapters.rest.generator;
 
 import static uk.gov.justice.services.generators.test.utils.reflection.ReflectionUtil.setField;
 
-import uk.gov.justice.services.adapter.rest.ActionMapper;
+import uk.gov.justice.services.adapter.rest.mapper.ActionMapper;
 import uk.gov.justice.services.adapter.rest.multipart.FileInputDetailsFactory;
 import uk.gov.justice.services.adapter.rest.processor.RestProcessor;
 import uk.gov.justice.services.adapter.rest.processor.response.AcceptedStatusNoEntityResponseStrategy;

@@ -35,6 +35,8 @@ import static uk.gov.justice.services.generators.test.utils.reflection.Reflectio
 import static uk.gov.justice.services.messaging.DefaultJsonEnvelope.envelope;
 
 import uk.gov.justice.services.adapter.rest.exception.BadRequestException;
+import uk.gov.justice.services.adapter.rest.mapper.ActionMapperHelper;
+import uk.gov.justice.services.adapter.rest.mapper.BasicActionMapperHelper;
 import uk.gov.justice.services.adapter.rest.parameter.Parameter;
 import uk.gov.justice.services.core.interceptor.InterceptorContext;
 
@@ -223,7 +225,7 @@ public class RestAdapterGenerator_GETMethodBodyTest extends BaseRestAdapterGener
         final Object resourceObject = getInstanceOf(resourceClass);
 
         final Class<?> actionMapperClass = compiler.compiledClassOf(BASE_PACKAGE, "mapper", "DefaultCakeResourceActionMapper");
-        final Object actionMapperObject = actionMapperClass.newInstance();
+        final Object actionMapperObject = actionMapperClass.getConstructor(ActionMapperHelper.class).newInstance(new BasicActionMapperHelper());
         setField(resourceObject, "actionMapper", actionMapperObject);
 
         setField(resourceObject, "headers", headersWith("Accept", "application/vnd.ctx.query.somemediatype1+json"));
@@ -255,7 +257,7 @@ public class RestAdapterGenerator_GETMethodBodyTest extends BaseRestAdapterGener
 
 
         final Class<?> actionMapperClass = compiler.compiledClassOf(BASE_PACKAGE, "mapper", "DefaultRecipeResourceActionMapper");
-        final Object actionMapperObject = actionMapperClass.newInstance();
+        final Object actionMapperObject = actionMapperClass.getConstructor(ActionMapperHelper.class).newInstance(new BasicActionMapperHelper());
         setField(resourceObject, "actionMapper", actionMapperObject);
 
         setField(resourceObject, "headers", headersWith("Accept", "application/vnd.ctx.query.mediatype1+json"));

@@ -32,7 +32,7 @@ import static uk.gov.justice.services.generators.commons.helper.Names.resourceIm
 import static uk.gov.justice.services.generators.commons.helper.Names.resourceInterfaceNameOf;
 
 import uk.gov.justice.raml.core.GeneratorConfig;
-import uk.gov.justice.services.adapter.rest.ActionMapper;
+import uk.gov.justice.services.adapter.rest.mapper.ActionMapper;
 import uk.gov.justice.services.adapter.rest.multipart.FileInputDetailsFactory;
 import uk.gov.justice.services.adapter.rest.parameter.ParameterType;
 import uk.gov.justice.services.adapter.rest.parameter.ValidParameterCollectionBuilder;

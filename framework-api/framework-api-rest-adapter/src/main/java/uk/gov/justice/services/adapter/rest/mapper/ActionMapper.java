@@ -1,4 +1,4 @@
-package uk.gov.justice.services.adapter.rest;
+package uk.gov.justice.services.adapter.rest.mapper;
 
 import javax.ws.rs.core.HttpHeaders;
 
