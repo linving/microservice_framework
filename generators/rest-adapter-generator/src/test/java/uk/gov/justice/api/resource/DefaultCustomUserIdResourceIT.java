@@ -17,6 +17,7 @@ import uk.gov.justice.services.adapter.rest.mapper.BasicActionMapperHelper;
 import uk.gov.justice.services.adapter.rest.multipart.DefaultFileInputDetailsFactory;
 import uk.gov.justice.services.adapter.rest.multipart.FileBasedInterceptorContextFactory;
 import uk.gov.justice.services.adapter.rest.multipart.InputPartFileNameExtractor;
+import uk.gov.justice.services.adapter.rest.parameter.ValidParameterCollectionBuilderFactory;
 import uk.gov.justice.services.adapter.rest.processor.DefaultRestProcessor;
 import uk.gov.justice.services.adapter.rest.processor.ResponseStrategyCache;
 import uk.gov.justice.services.adapter.rest.processor.response.AcceptedStatusNoEntityResponseStrategy;
@@ -125,7 +126,8 @@ public class DefaultCustomUserIdResourceIT {
             FileBasedInterceptorContextFactory.class,
             InputPartFileNameExtractor.class,
             DefaultFileInputDetailsFactory.class,
-            ResponseStrategyCache.class
+            ResponseStrategyCache.class,
+            ValidParameterCollectionBuilderFactory.class
     })
     public WebApp war() {
         return new WebApp()

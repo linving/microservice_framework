@@ -34,8 +34,9 @@ import static uk.gov.justice.services.generators.commons.helper.Names.resourceIn
 import uk.gov.justice.raml.core.GeneratorConfig;
 import uk.gov.justice.services.adapter.rest.mapper.ActionMapper;
 import uk.gov.justice.services.adapter.rest.multipart.FileInputDetailsFactory;
+import uk.gov.justice.services.adapter.rest.parameter.ParameterCollectionBuilder;
+import uk.gov.justice.services.adapter.rest.parameter.ParameterCollectionBuilderFactory;
 import uk.gov.justice.services.adapter.rest.parameter.ParameterType;
-import uk.gov.justice.services.adapter.rest.parameter.ValidParameterCollectionBuilder;
 import uk.gov.justice.services.adapter.rest.processor.RestProcessor;
 import uk.gov.justice.services.core.annotation.Adapter;
 import uk.gov.justice.services.core.annotation.Component;
@@ -101,8 +102,8 @@ class JaxRsImplementationGenerator {
 
     private static final String INTERCEPTOR_CHAIN_PROCESSOR_FIELD = "interceptorChainProcessor";
     private static final String ACTION_MAPPER_FIELD = "actionMapper";
-
     private static final String FILE_INPUT_DETAILS_FACTORY_FIELD = "fileInputDetailsFactory";
+    private static final String VALID_PARAMETER_COLLECTION_BUILDER_FACTORY_FIELD = "validParameterCollectionBuilderFactory";
 
     private final GeneratorConfig configuration;
 
@@ -173,6 +174,9 @@ class JaxRsImplementationGenerator {
                         .addAnnotation(Context.class)
                         .build())
                 .addField(FieldSpec.builder(FileInputDetailsFactory.class, FILE_INPUT_DETAILS_FACTORY_FIELD)
+                        .addAnnotation(Inject.class)
+                        .build())
+                .addField(FieldSpec.builder(ParameterCollectionBuilderFactory.class, VALID_PARAMETER_COLLECTION_BUILDER_FACTORY_FIELD)
                         .addAnnotation(Inject.class)
                         .build());
     }
@@ -518,12 +522,12 @@ class JaxRsImplementationGenerator {
      * @return the {@link CodeBlock} representing the general code
      */
     private CodeBlock methodBody(final Map<String, UriParameter> pathParams, final Supplier<CodeBlock> supplier) {
-        final ClassName classMapBuilderType = ClassName.get(ValidParameterCollectionBuilder.class);
+        final ClassName classMapBuilderType = ClassName.get(ParameterCollectionBuilder.class);
         final ClassName classLoggerUtils = ClassName.get(LoggerUtils.class);
         final ClassName classHttpMessageLoggerHelper = ClassName.get(HttpMessageLoggerHelper.class);
 
         return CodeBlock.builder()
-                .addStatement("final $T $L = new $T()", classMapBuilderType, VALID_PARAMETER_COLLECTION_BUILDER_VARIABLE, classMapBuilderType)
+                .addStatement("final $T $L = $L.create()", classMapBuilderType, VALID_PARAMETER_COLLECTION_BUILDER_VARIABLE, VALID_PARAMETER_COLLECTION_BUILDER_FACTORY_FIELD)
                 .addStatement("$T.trace(LOGGER, () -> String.format(\"Received REST request with headers: %s\", $T.toHttpHeaderTrace(headers)))",
                         classLoggerUtils, classHttpMessageLoggerHelper)
                 .add(putAllPathParamsInCollectionBuilder(pathParams.keySet()))
