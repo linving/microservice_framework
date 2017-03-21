@@ -24,7 +24,7 @@
         </dependency>
         <dependency>
             <groupId>uk.gov.justice.services</groupId>
-            <artifactId>rest-adapter-core</artifactId>
+            <artifactId>framework-api-rest-adapter</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -84,6 +84,12 @@
         <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.gov.justice.services</groupId>
+            <artifactId>rest-adapter-core</artifactId>
+            <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
