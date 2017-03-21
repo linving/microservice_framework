@@ -35,8 +35,8 @@ import static uk.gov.justice.services.generators.test.utils.reflection.Reflectio
 import static uk.gov.justice.services.messaging.DefaultJsonEnvelope.envelope;
 
 import uk.gov.justice.services.adapter.rest.exception.BadRequestException;
-import uk.gov.justice.services.adapter.rest.mapper.ActionMapperHelper;
-import uk.gov.justice.services.adapter.rest.mapper.BasicActionMapperHelper;
+import uk.gov.justice.services.adapter.rest.mapping.ActionMapperHelper;
+import uk.gov.justice.services.adapter.rest.mapping.BasicActionMapperHelper;
 import uk.gov.justice.services.adapter.rest.parameter.Parameter;
 import uk.gov.justice.services.core.interceptor.InterceptorContext;
 

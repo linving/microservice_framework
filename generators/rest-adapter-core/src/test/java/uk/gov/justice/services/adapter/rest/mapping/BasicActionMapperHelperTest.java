@@ -1,4 +1,4 @@
-package uk.gov.justice.services.adapter.rest.mapper;
+package uk.gov.justice.services.adapter.rest.mapping;
 
 
 import static org.hamcrest.CoreMatchers.is;

@@ -41,7 +41,7 @@ import static uk.gov.justice.services.generators.test.utils.reflection.Reflectio
 import static uk.gov.justice.services.generators.test.utils.reflection.ReflectionUtil.methodsOf;
 
 import uk.gov.justice.raml.core.GeneratorConfig;
-import uk.gov.justice.services.adapter.rest.mapper.ActionMapper;
+import uk.gov.justice.services.adapter.rest.mapping.ActionMapper;
 import uk.gov.justice.services.adapter.rest.processor.RestProcessor;
 import uk.gov.justice.services.core.annotation.Adapter;
 import uk.gov.justice.services.core.annotation.Component;

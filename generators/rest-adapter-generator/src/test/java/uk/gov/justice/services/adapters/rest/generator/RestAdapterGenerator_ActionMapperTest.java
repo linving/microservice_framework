@@ -20,8 +20,8 @@ import static uk.gov.justice.services.generators.test.utils.config.GeneratorConf
 import static uk.gov.justice.services.generators.test.utils.config.GeneratorPropertiesBuilder.generatorProperties;
 import static uk.gov.justice.services.generators.test.utils.reflection.ReflectionUtil.methodOf;
 
-import uk.gov.justice.services.adapter.rest.mapper.ActionMapperHelper;
-import uk.gov.justice.services.adapter.rest.mapper.BasicActionMapperHelper;
+import uk.gov.justice.services.adapter.rest.mapping.ActionMapperHelper;
+import uk.gov.justice.services.adapter.rest.mapping.BasicActionMapperHelper;
 
 import java.lang.reflect.Method;
 

@@ -1,4 +1,4 @@
-package uk.gov.justice.services.adapter.rest.mapper;
+package uk.gov.justice.services.adapter.rest.mapping;
 
 import static java.lang.String.format;
 import static java.util.Collections.emptyMap;

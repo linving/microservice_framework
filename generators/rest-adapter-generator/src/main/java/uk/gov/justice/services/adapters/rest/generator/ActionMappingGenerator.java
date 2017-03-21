@@ -15,8 +15,8 @@ import static uk.gov.justice.services.generators.commons.helper.Names.buildResou
 import static uk.gov.justice.services.generators.commons.helper.Names.buildResourceMethodNameWithNoMimeType;
 import static uk.gov.justice.services.generators.commons.helper.Names.mapperClassNameOf;
 
-import uk.gov.justice.services.adapter.rest.mapper.ActionMapper;
-import uk.gov.justice.services.adapter.rest.mapper.ActionMapperHelper;
+import uk.gov.justice.services.adapter.rest.mapping.ActionMapper;
+import uk.gov.justice.services.adapter.rest.mapping.ActionMapperHelper;
 import uk.gov.justice.services.generators.commons.mapping.ActionMapping;
 
 import java.util.Collection;
